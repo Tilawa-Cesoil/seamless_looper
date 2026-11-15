@@ -25,9 +25,49 @@
 
 ## 快速开始
 
-要求 Python 3.10+，并准备 ffmpeg / ffprobe。
+### 使用发布版（Windows x64，推荐）
+
+从 [GitHub Releases](https://github.com/Tilawa-Cesoil/seamless_looper/releases/latest) 下载最新 zip，例如：
+
+```text
+SeamlessLooper-1.0.3-win64.zip
+```
+
+1. 完整解压到一个**可写目录**，例如 `D:\Apps\SeamlessLooper\`。
+2. 安装 **ffmpeg** 和 **ffprobe** 并加入 `PATH`；本版本没有内置 ffmpeg。可在命令行确认：
+
+   ```bat
+   ffmpeg -version
+   ffprobe -version
+   ```
+
+3. 双击运行：
+
+   ```text
+   SeamlessLooper\SeamlessLooper.exe
+   ```
+
+注意事项：
+
+- 不要直接在压缩包内运行，也不要只复制 exe；必须保留整个 `SeamlessLooper` 目录。
+- 不要放在需要管理员权限的 `Program Files` 下，否则曲库可能无法写入。
+- 曲库和设置保存在程序目录内：
+
+  ```text
+  SeamlessLooper\_internal\library\
+  SeamlessLooper\_internal\settings.ini
+  ```
+
+  升级版本前请备份 `_internal\library` 和 `_internal\settings.ini`。
+- 仓库和发布包都不附带音频文件。
+
+### 从源码运行（开发）
+
+要求 Python 3.10+，以及可用的 ffmpeg / ffprobe。
 
 ```bash
+git clone https://github.com/Tilawa-Cesoil/seamless_looper.git
+cd seamless_looper
 python -m pip install -r requirements.txt
 python app.py
 ```
@@ -44,7 +84,7 @@ ffmpeg 查找顺序：
 2. 项目内的 `bin\ffmpeg.exe` 与 `bin\ffprobe.exe`
 3. 系统 `PATH`
 
-便携版放置说明见 [bin/README.txt](bin/README.txt)。仓库不附带任何音频文件；`library/` 是用户数据目录。
+便携版放置说明见 [bin/README.txt](bin/README.txt)。从源码运行时，曲库和 `settings.ini` 保存在项目根目录。
 
 ## 使用
 
